@@ -3,6 +3,10 @@
 maximum_number = 100
 
 def isPerfect(value):
+    """ Returns true if a number is perfect or false is a number is not perfect
+    :param value: the number that is supposed to discover if is perfect or not
+    :return: the boolean value
+    """
     lista_divisores = []
     for i in range(1, value):
         if value % i == 0:
@@ -14,6 +18,7 @@ def isPerfect(value):
         return True
     else:
         return False
+
 
 def main():
     print("Starting to compute perfect numbers up to " + str(maximum_number))

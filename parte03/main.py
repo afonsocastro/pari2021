@@ -3,7 +3,7 @@
 from time import time, ctime
 from math import sqrt
 
-#confirmar se esccreve no repositorio
+#confirmar se esccreve no repositorio bfd
 def main():
     print("This is Ex1 and the current date is " + ctime())
 

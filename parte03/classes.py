@@ -16,7 +16,7 @@ class Complex:
         return self
         # return Complex(self.r*y.r - self.i*y.i, self.i*y.r + self.r*y.i)
 
-    def __str__(self):
+    def __str__(self):# esta funcao serve para fazer o print
         return str(self.r) + "+" + str(self.i) + "i" if self.i >= 0 else str(self.r) + str(self.i) + "i"
 
 

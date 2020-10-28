@@ -4,7 +4,7 @@ import cv2
 
 def main():
 
-    image_filename = 'path to my image .png'
+    image_filename = '/home/ze/Desktop/aulas_20-21/aulas do prof/pari_20-21/Parte05/images/atlascar2.png'
     image = cv2.imread(image_filename, cv2.IMREAD_COLOR) # Load an image
 
     cv2.imshow('window', image)  # Display the image

@@ -28,15 +28,20 @@ def main():
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
             # cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), -1)
 
+            # width, height = img.shape[:2]
+
+
+            #deteccao de arestas marcacao a vermelho
+            edges = cv2.Canny(img, 100, 200)
+            bgr = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)#cria uma imagem das arestass com 3 canais
+            bgr *= np.array((0,0,1),np.uint8) #deixa apenas o canal vermelho
+            out = np.bitwise_and(img, bgr) #aplica a mascara
+            cv2.imshow(window_name2, out)
+
             # esverdeamento da face
             roi=img[y:y+h,x:x+w] #nao fazendo copia, modifico diretamente esta zona da imagem original
             roi[:, :, 0] = 0
             roi[:, :, 2] = 0
-
-            # cv2.imshow(window_name2, roi)
-
-
-            #deteccao de arestas
 
 
         # Display the output

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/pari2021.iml" filepath="$PROJECT_DIR$/.idea/pari2021.iml" />
+      <module fileurl="file://$USER_HOME$/catkin_ws/pari_aula8_ex3/.idea/pari_aula8_ex3.iml" filepath="$USER_HOME$/catkin_ws/pari_aula8_ex3/.idea/pari_aula8_ex3.iml" />
     </modules>
   </component>
 </project>

@@ -10,7 +10,8 @@ from colorama import Fore
 
 import rospy
 from std_msgs.msg import String
-# from pari_aula8_ex4_A.msg import Dog_A
+from pari_aula8_ex4.msg import dog
+
 
 
 def messageReceivedCallback(message):
@@ -23,7 +24,7 @@ def main():
     args = vars(parser.parse_args())
 
     rospy.init_node('subscriber', anonymous=True)
-    rospy.Subscriber(args['topic_name'], String, messageReceivedCallback)
+    rospy.Subscriber(args['topic_name'], dog, messageReceivedCallback)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()

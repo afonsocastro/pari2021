@@ -5,6 +5,7 @@ import argparse
 from colorama import Fore
 from std_msgs.msg import String
 from dog_lib import Dog
+from pari_aula8_ex4.msg import dog
 
 def main():
     parser =argparse.ArgumentParser(description='test')
@@ -13,15 +14,22 @@ def main():
     parser.add_argument('-f', '--frequency', type=float, default=10, help='content of message to publish.')
     args =vars(parser.parse_args())
 
-    pub = rospy.Publisher(args['topic_name'], String, queue_size=10)
+    pub = rospy.Publisher(args['topic_name'], dog, queue_size=10)
     rospy.init_node('publisher', anonymous=True)
     rate = rospy.Rate(args['frequency']) # 10hz
 
-    dog= Dog(nome='bobby', age=17, color='Black')
-    dog.addBrother('Lassie')
+    # dog= Dog(nome='bobby', age=17, color='Black')
+    # dog.addBrother('Lassie')
+
+    dog_message = dog()
+    dog_message.name='Bobby'
+    dog_message.age= '?'
+    dog_message.color = 'Black'
+    dog_message.brother.append('Lassie')
+
     while not rospy.is_shutdown():
-        rospy.loginfo("Publishing message: "+Fore.RED + args['message_content']+' on topic ' + args['topic_name'])
-        pub.publish(args['message_content'])
+        rospy.loginfo("Publishing message: "+Fore.RED + str(dog_message)+ Fore.RESET+ ' on topic ' + args['topic_name'])
+        pub.publish(dog_message)
         rate.sleep()
 
 if __name__ == '__main__':
